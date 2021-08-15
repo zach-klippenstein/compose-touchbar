@@ -14,11 +14,15 @@ repositories {
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
     google()
+    mavenLocal()
 }
 
 dependencies {
     implementation(compose.desktop.currentOs)
-    implementation("com.thizzer.jtouchbar:jtouchbar:1.0.0")
+
+    // Not on a public repository, build manually from
+    // https://github.com/shannah/Java-Objective-C-Bridge.
+    implementation("ca.weblite:java-objc-bridge:1.1-SNAPSHOT")
 }
 
 tasks.withType<KotlinCompile>() {
